@@ -60,3 +60,9 @@ void SerialInterface::getPositions()
 		}
 	}
 }
+
+void SerialInterface::close()
+{
+	mySerial->flush();
+	mySerial->close();
+}
