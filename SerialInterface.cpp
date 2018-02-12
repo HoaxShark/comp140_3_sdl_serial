@@ -52,9 +52,11 @@ void SerialInterface::getPositions()
 
 		string result = mySerial->readline();
 
-		string sub1 = result.substr(0, 4);
-		pot1 = std::stoi(sub1);
-		string sub2 = result.substr(5, 9);
-		pot2 = std::stoi(sub2);
+		if (result.length() >= 9) {
+			string sub1 = result.substr(0, 4);
+			pot1 = std::stoi(sub1);
+			string sub2 = result.substr(5, 9);
+			pot2 = std::stoi(sub2);
+		}
 	}
 }
