@@ -135,6 +135,8 @@ void Game::handleEvents()
 */
 void Game::clean()
 {	
+	serialInterface->close();
+
 	cout << "Cleaning SDL \n";
 	SDL_DestroyWindow(mainWindow);
 	SDL_DestroyRenderer(mainRenderer);

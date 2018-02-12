@@ -17,6 +17,8 @@ public:
 	int getPot1() { return pot1; };
 	int getPot2() { return pot2; };
 
+	void close();
+
 private:
 	serial::Serial* mySerial;
 	bool connect = false;
