@@ -10,7 +10,7 @@ using std::cout;
 */
 Game::Game()
 {
-	
+	serialInterface = new SerialInterface(); // 
 }
 
 /*
@@ -76,6 +76,23 @@ void Game::render()
 	SDL_RenderClear(mainRenderer);
 
 	// draw to the screen here!
+	SDL_Rect player1;
+	player1.x = 50;
+	player1.y = serialInterface->getPot1();
+	player1.w = 30;
+	player1.h = 80;
+
+	SDL_SetRenderDrawColor(mainRenderer, 255, 0, 0, 255);
+	SDL_RenderFillRect(mainRenderer, &player1);
+
+	SDL_Rect player2;
+	player2.x = 550;
+	player2.y = serialInterface->getPot2();
+	player2.w = 30;
+	player2.h = 80;
+
+	SDL_SetRenderDrawColor(mainRenderer, 0, 255, 0, 255);
+	SDL_RenderFillRect(mainRenderer, &player2);
 	
 	// render new frame
 	SDL_RenderPresent(mainRenderer);
@@ -87,7 +104,7 @@ void Game::render()
 */
 void Game::update()
 {
-	
+	serialInterface->getPositions();
 }
 
 /*
